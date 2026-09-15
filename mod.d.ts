@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2026 The Stdlib Authors.
@@ -16,22 +16,29 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
 
-// MODULES //
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
 
-var isnan = require( '@stdlib/math-base-assert-is-nan' );
-var incrmgmean = require( '@stdlib/stats-incr-mgmean' );
-
-
-// MAIN //
+/**
+* If provided a value, returns an updated geometric mean; otherwise, returns the current geometric mean.
+*
+* @param x - value
+* @returns geometric mean
+*/
+type accumulator = ( x?: number ) => number | null;
 
 /**
 * Returns an accumulator function which incrementally computes a moving geometric mean, ignoring `NaN` values.
 *
-* @param {PositiveInteger} W - window size
-* @throws {TypeError} must provide a positive integer
-* @returns {Function} accumulator function
+* ## Notes
+*
+* -   The `W` parameter defines the number of values over which to compute the moving geometric mean.
+* -   As `W` values are needed to fill the window buffer, the first `W-1` returned values are calculated from smaller sample sizes. Until the window is full, each returned value is calculated from all provided values.
+*
+* @param W - window size
+* @throws must provide a positive integer
+* @returns accumulator function
 *
 * @example
 * var accumulator = incrnanmgmean( 3 );
@@ -57,26 +64,9 @@ var incrmgmean = require( '@stdlib/stats-incr-mgmean' );
 * v = accumulator();
 * // returns ~4.22
 */
-function incrnanmgmean( W ) {
-	var acc = incrmgmean( W );
-	return accumulator;
-
-	/**
-	* If provided a value, the accumulator function returns an updated geometric mean. If not provided a value, the accumulator function returns the current geometric mean.
-	*
-	* @private
-	* @param {number} [x] - input value
-	* @returns {(number|null)} geometric mean or null
-	*/
-	function accumulator( x ) {
-		if ( arguments.length === 0 || isnan( x ) ) {
-			return acc();
-		}
-		return acc( x );
-	}
-}
+declare function incrnanmgmean( W: number ): accumulator;
 
 
 // EXPORTS //
 
-module.exports = incrnanmgmean;
+export = incrnanmgmean;
