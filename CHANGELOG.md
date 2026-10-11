@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2026-09-15)
+## Unreleased (2026-10-11)
 
 <section class="features">
 
@@ -34,6 +34,7 @@ This release closes the following issue:
 
 <details>
 
+-   [`9d72759`](https://github.com/stdlib-js/stdlib/commit/9d7275930edc7bcf612dd4b91c640a2b7e4a9d8b) - **test:** migrate `stats/incr/nanmgmean` to ULP-based assertions [(#16032)](https://github.com/stdlib-js/stdlib/pull/16032) _(by Athan Reines)_
 -   [`44d0b45`](https://github.com/stdlib-js/stdlib/commit/44d0b4524b30b1e83a3d6b2a9e6ce2cfb5a01725) - **feat(stats):** add `stats/incr/nanmgmean` [(#6243)](https://github.com/stdlib-js/stdlib/pull/6243) _(by HO CHAK SING (Hans), Philipp Burckhardt, stdlib-bot)_
 
 </details>
@@ -46,8 +47,9 @@ This release closes the following issue:
 
 ### Contributors
 
-A total of 2 people contributed to this release. Thank you to the following contributors:
+A total of 3 people contributed to this release. Thank you to the following contributors:
 
+-   Athan Reines
 -   HO CHAK SING (Hans)
 -   Philipp Burckhardt
 
